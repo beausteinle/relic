@@ -4,7 +4,6 @@ Just a small, personal project to play around with creating a component library 
 
 List of currently planned components:
 
-<div style="columns: 3; -webkit-columns: 3; -moz-columns: 3;">
 - Accordion
 - Alert
 - Badge
@@ -48,7 +47,6 @@ List of currently planned components:
   - Tree
   - Quote
 - Video
-</div>
 
 The goal is to make clean components with no third party dependencies, only vanilla React and browser APIs.
 
