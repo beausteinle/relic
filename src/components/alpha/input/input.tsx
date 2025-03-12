@@ -1,5 +1,19 @@
 import React from 'react'
 
-export const Input = () => {
-  return <input style={{ maxWidth: '400px' }} />
+export type InputProps = {
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  value?: string
+  style?: React.CSSProperties
+  disabled?: boolean
+}
+
+export const Input = ({ onChange, value, style, disabled }: InputProps) => {
+  return (
+    <input
+      value={value}
+      onChange={onChange}
+      style={style || { maxWidth: '400px' }}
+      disabled={disabled}
+    />
+  )
 }

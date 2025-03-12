@@ -1,5 +1,5 @@
 export type SelectOption = {
-  value: number | string
+  value: string | number | readonly string[] | undefined
   label: string
   disabled?: boolean
   selected?: boolean
@@ -8,14 +8,16 @@ export type SelectOption = {
 export type SelectProps = {
   options: SelectOption[]
   onChange: (e: React.ChangeEvent<HTMLSelectElement>) => void
+  value?: SelectOption
   disabled?: boolean
   style?: React.CSSProperties
 }
 
-const Select = ({ options, onChange, disabled, style }: SelectProps) => {
+const Select = ({ options, onChange, value, disabled, style }: SelectProps) => {
   return (
     <select
       onChange={onChange}
+      value={value?.value}
       disabled={!!disabled}
       style={style || { width: '200px' }}
     >
