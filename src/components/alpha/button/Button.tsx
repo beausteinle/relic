@@ -1,11 +1,12 @@
 import './button.css'
 
-interface ButtonProps {
+export type ButtonProps = {
   onClick: () => void
   text: string
   className?: string
   size?: 'small' | 'medium' | 'large'
   disabled?: boolean
+  style?: React.CSSProperties
 }
 
 export const Button = ({
@@ -14,6 +15,7 @@ export const Button = ({
   className,
   size,
   disabled,
+  style,
 }: ButtonProps) => {
   return (
     <button
@@ -23,6 +25,7 @@ export const Button = ({
         `color-white bg-color-primary border-none border-radius-5 size-${size ?? 'medium'}`
       }
       disabled={disabled}
+      style={style}
     >
       {text}
     </button>
