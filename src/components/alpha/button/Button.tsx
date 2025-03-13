@@ -10,7 +10,7 @@ export type ButtonProps = {
   children?: React.ReactNode
 }
 
-export const Button = ({
+const Button = ({
   onClick,
   text,
   className,
@@ -33,3 +33,5 @@ export const Button = ({
     </button>
   )
 }
+
+export default Button

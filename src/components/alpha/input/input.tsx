@@ -7,7 +7,7 @@ export type InputProps = {
   disabled?: boolean
 }
 
-export const Input = ({ onChange, value, style, disabled }: InputProps) => {
+const Input = ({ onChange, value, style, disabled }: InputProps) => {
   return (
     <input
       value={value}
@@ -17,3 +17,5 @@ export const Input = ({ onChange, value, style, disabled }: InputProps) => {
     />
   )
 }
+
+export default Input
