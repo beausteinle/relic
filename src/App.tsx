@@ -1,45 +1,37 @@
-import logo from './logo.svg'
-import './App.css'
-import { Button } from './components/alpha/button/Button'
-import { Input } from './components/alpha/input/input'
-import Select, { SelectOption } from './components/alpha/select/select'
-import { useState } from 'react'
+import { useState } from "react";
+import reactLogo from "./assets/react.svg";
+import viteLogo from "/vite.svg";
+import "./App.css";
+import { Button } from "./components/alpha/button/Button";
 
-export const App = () => {
-  const [someValue, setSomeValue] = useState('')
-
-  const sampleOptions: SelectOption[] = [
-    {
-      label: 'Test 1',
-      value: 1,
-    },
-    {
-      label: 'Test 2',
-      value: 2,
-    },
-  ]
-
-  const onChangeHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    window.alert(`Changed to: ${e.target.value}`)
-  }
-
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSomeValue(e.target.value)
-  }
+function App() {
+  const [count, setCount] = useState(0);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        {someValue}
-        <Input onChange={onChangeInput} />
-        <Select options={sampleOptions} onChange={onChangeHandler} />
-        <Button
-          onClick={() => window.alert('Clicked!')}
-          size="large"
-          text="Click Me!"
-        />
-      </header>
-    </div>
-  )
+    <>
+      <div>
+        <a href="https://vite.dev" target="_blank">
+          <img src={viteLogo} className="logo" alt="Vite logo" />
+        </a>
+        <a href="https://react.dev" target="_blank">
+          <img src={reactLogo} className="logo react" alt="React logo" />
+        </a>
+      </div>
+      <h1>Vite + React</h1>
+      <div className="card">
+        <button onClick={() => setCount((count) => count + 1)}>
+          count is {count}
+        </button>
+        <p>
+          Edit <code>src/App.tsx</code> and save to test HMR
+        </p>
+      </div>
+      <p className="read-the-docs">
+        Click on the Vite and React logos to learn more
+      </p>
+      <Button onClick={() => console.log("CLicked!")}>Click ME!</Button>
+    </>
+  );
 }
+
+export default App;
