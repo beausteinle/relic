@@ -1,19 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { Button } from "./components/alpha/button/Button";
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '../public/vite.svg'
+import './App.css'
+import { Button } from './components/alpha/button/Button'
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0)
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
+        <a href="https://vite.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-        <a href="https://react.dev" target="_blank">
+        <a href="https://react.dev" target="_blank" rel="noreferrer">
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
@@ -29,9 +29,9 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <Button onClick={() => console.log("CLicked!")}>Click ME!</Button>
+      <Button onClick={() => console.log('CLicked!')}>Click ME!</Button>
     </>
-  );
+  )
 }
 
-export default App;
+export default App
