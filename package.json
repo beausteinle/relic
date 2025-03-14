@@ -1,7 +1,6 @@
 {
-  "name": "relic",
-  "private": true,
-  "version": "0.0.0",
+  "name": "react-relic",
+  "version": "0.1.0",
   "type": "module",
   "files": [
     "dist"
@@ -22,7 +21,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint .",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -34,7 +33,7 @@
     "@typescript-eslint/eslint-plugin": "^8.26.1",
     "@typescript-eslint/parser": "^8.26.1",
     "@vitejs/plugin-react": "^4.3.4",
-    "eslint": "^9.22.0",
+    "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
