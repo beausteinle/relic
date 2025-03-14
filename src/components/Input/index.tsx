@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './styles.module.css'
 
 export type InputProps = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -10,6 +11,7 @@ export type InputProps = {
 const Input = ({ onChange, value, style, disabled }: InputProps) => {
   return (
     <input
+      className={styles.r_input}
       value={value}
       onChange={onChange}
       style={style || { maxWidth: '400px' }}

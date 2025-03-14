@@ -1,3 +1,5 @@
+import styles from './styles.module.css'
+
 export type SelectOption = {
   value: string | number | readonly string[] | undefined
   label: string
@@ -16,6 +18,7 @@ export type SelectProps = {
 const Select = ({ options, onChange, value, disabled, style }: SelectProps) => {
   return (
     <select
+      className={styles.r_select}
       onChange={onChange}
       value={value?.value}
       disabled={!!disabled}
