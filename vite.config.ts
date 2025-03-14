@@ -14,7 +14,8 @@ export default defineConfig({
     dts({
       entryRoot: path.resolve(__dirname, 'src'),
       include: ['src'],
-      tsconfigPath: path.resolve(__dirname, 'tsconfig.json'),
+      exclude: ['src/main.tsx', 'src/App.tsx'],
+      tsconfigPath: path.resolve(__dirname, 'tsconfig.app.json'),
     }),
   ],
   build: {
