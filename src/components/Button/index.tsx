@@ -1,4 +1,4 @@
-import './button.css'
+import module from './button.module.css'
 
 export type ButtonProps = {
   onClick: () => void
@@ -19,13 +19,21 @@ const Button = ({
   style,
   children,
 }: ButtonProps) => {
+  const getSize = () => {
+    switch (size) {
+      case 'small':
+        return module.button_sm
+      case 'large':
+        return module.button_lg
+      default:
+        return module.button_md
+    }
+  }
+
   return (
     <button
       onClick={onClick}
-      className={
-        className ||
-        `color-white bg-color-primary border-none border-radius-5 size-${size ?? 'medium'}`
-      }
+      className={`${module.button} ${getSize()} ${className ?? ''}`}
       disabled={disabled}
       style={style}
     >

@@ -3,22 +3,28 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "main": "dist/your-component-library.umd.js",
-  "module": "dist/your-component-library.es.js",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/react-relic.umd.js",
+  "module": "dist/react-relic.es.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/react-relic.es.js",
+      "require": "./dist/react-relic.umd.js"
+    },
+    "./style.css": "./dist/my-lib.css"
+  },
   "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0 || ^19.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "preview": "vite preview"
-  },
-  "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
