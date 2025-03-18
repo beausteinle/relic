@@ -1,9 +1,9 @@
-// filepath: c:\Users\beaus\Development\relic\relic\jest.config.mjs
 import { defaults } from 'jest-config'
 
 export default {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
+  setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
   },

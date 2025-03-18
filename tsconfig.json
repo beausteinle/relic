@@ -5,10 +5,10 @@
     { "path": "./tsconfig.node.json" }
   ],
   "compilerOptions": {
-    "types": ["node", "vite/client"],
-    // other options
+    "types": ["node", "vite/client", "jest"],
     "target": "ES6",
     "module": "ESNext",
+    "jsx": "react-jsx",
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
