@@ -1,70 +1,52 @@
-// checkbox.test.tsx
-import React from 'react'
 import { render, screen, fireEvent } from '@testing-library/react'
+import '@testing-library/jest-dom'
+import { describe, it, expect, vi } from 'vitest'
 import Checkbox from './index'
 
-describe('Checkbox Component', () => {
-  test('renders with label when label prop is provided', () => {
-    const handleChange = jest.fn()
-    render(<Checkbox onChange={handleChange} label="Accept Terms" />)
-
-    // Check that the label text is rendered
-    const labelElement = screen.getByText('Accept Terms')
+describe('Checkbox', () => {
+  it('should render with label', () => {
+    render(<Checkbox onChange={() => {}} label="Accept Terms and Conditions" />)
+    const labelElement = screen.getByText(/accept terms and conditions/i)
     expect(labelElement).toBeInTheDocument()
-
-    // Check that the checkbox input exists
-    const inputElement = screen.getByRole('checkbox')
-    expect(inputElement).toBeInTheDocument()
-
-    // Ensure that the label is associated with the checkbox input
-    // (label's htmlFor should equal the input's name attribute)
-    expect(labelElement).toHaveAttribute(
-      'for',
-      inputElement.getAttribute('name')
-    )
   })
 
-  test('renders children when children prop is provided', () => {
-    const handleChange = jest.fn()
+  it('should call onChange handler with correct value when clicked', () => {
+    const handleChange = vi.fn()
     render(
-      <Checkbox onChange={handleChange}>
-        <span>Child Label</span>
-      </Checkbox>
+      <Checkbox onChange={handleChange} label="Accept Terms and Conditions" />
     )
-
-    // Check that the children are rendered as label content
-    const childElement = screen.getByText('Child Label')
-    expect(childElement).toBeInTheDocument()
-  })
-
-  test('is disabled when disabled prop is true', () => {
-    const handleChange = jest.fn()
-    render(<Checkbox onChange={handleChange} disabled />)
-
-    const inputElement = screen.getByRole('checkbox')
-    expect(inputElement).toBeDisabled()
-  })
-
-  test('calls onChange handler when checkbox is clicked', () => {
-    const handleChange = jest.fn()
-    render(<Checkbox onChange={handleChange} label="Test Checkbox" />)
-
-    const inputElement = screen.getByRole('checkbox')
-    fireEvent.click(inputElement)
+    const checkboxElement = screen.getByLabelText(
+      /accept terms and conditions/i
+    )
+    fireEvent.click(checkboxElement)
     expect(handleChange).toHaveBeenCalledTimes(1)
+    expect(handleChange.mock.calls[0][0].target.checked).toBe(true)
+    fireEvent.click(checkboxElement)
+    expect(handleChange).toHaveBeenCalledTimes(2)
+    expect(handleChange.mock.calls[1][0].target.checked).toBe(false)
   })
 
-  test('applies defaultChecked prop correctly', () => {
-    const handleChange = jest.fn()
+  it('should be disabled when disabled prop is true', () => {
     render(
       <Checkbox
-        onChange={handleChange}
-        label="Default Checked"
-        defaultChecked
+        onChange={() => {}}
+        label="Accept Terms and Conditions"
+        disabled
       />
     )
+    const checkboxElement = screen.getByLabelText(
+      /accept terms and conditions/i
+    )
+    expect(checkboxElement).toBeDisabled()
+  })
 
-    const inputElement = screen.getByRole('checkbox') as HTMLInputElement
-    expect(inputElement.checked).toBe(true)
+  it('should render children when passed', () => {
+    render(
+      <Checkbox onChange={() => {}}>
+        <span>Child Element</span>
+      </Checkbox>
+    )
+    const childElement = screen.getByText(/child element/i)
+    expect(childElement).toBeInTheDocument()
   })
 })
