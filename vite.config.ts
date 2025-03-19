@@ -14,7 +14,7 @@ export default defineConfig({
     dts({
       entryRoot: path.resolve(__dirname, 'src'),
       include: ['src'],
-      exclude: ['src/main.tsx', 'src/App.tsx'],
+      exclude: ['src/main.tsx', 'src/App.tsx', 'src/setupTests.ts'],
       tsconfigPath: path.resolve(__dirname, 'tsconfig.app.json'),
     }),
   ],
@@ -26,8 +26,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      // Don't bundle React and ReactDOM, they are peer dependencies
-      external: ['react', 'react-dom', 'react/jsx-runtime'],
+      external: ['react', 'react-dom', 'react/jsx-runtime', 'vitest'],
       output: {
         globals: {
           react: 'React',
@@ -45,6 +44,7 @@ export default defineConfig({
               'src/main.tsx',
               'index.css',
               'src/assets/**/*.svg',
+              'src/setupTests.ts',
             ],
           })
           .map((file) => {

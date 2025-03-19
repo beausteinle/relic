@@ -55,6 +55,7 @@ export default [
         __dirname: 'readonly',
         module: 'readonly',
         require: 'readonly',
+        vi: 'readonly', // Add Vitest global variable
       },
     },
     plugins: {
