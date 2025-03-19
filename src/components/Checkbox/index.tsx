@@ -1,4 +1,4 @@
-import { useId } from 'react'
+import React, { useId } from 'react'
 
 export type CheckboxPropType = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -21,8 +21,8 @@ const Checkbox = ({
     <>
       <input
         type="checkbox"
+        id={id}
         onChange={onChange}
-        name={id}
         defaultChecked={defaultChecked}
         disabled={disabled}
       />
