@@ -1,4 +1,5 @@
 import React, { useId } from 'react'
+import styles from './styles.module.css'
 
 export type CheckboxPropType = {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
@@ -18,16 +19,23 @@ const Checkbox = ({
   const id = useId()
 
   return (
-    <>
+    <div
+      className={`${styles.checkboxContainer} ${disabled ? styles.disabled : ''}`}
+    >
       <input
         type="checkbox"
         id={id}
         onChange={onChange}
         defaultChecked={defaultChecked}
         disabled={disabled}
+        className={styles.checkbox}
       />
-      {(label || children) && <label htmlFor={id}>{label || children}</label>}
-    </>
+      {(label || children) && (
+        <label htmlFor={id} className={styles.label}>
+          {label || children}
+        </label>
+      )}
+    </div>
   )
 }
 
