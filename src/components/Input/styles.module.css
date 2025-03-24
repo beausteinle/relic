@@ -1,4 +1,33 @@
 .r_input {
-  width: 400px;
-  border-radius: 5px;
+  border: 1px solid #ccc;
+  border-radius: 9999px;
+  padding: 8px 12px;
+  font-size: 14px;
+  color: #333;
+  background-color: #fff;
+  transition:
+    border-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+
+  &:focus {
+    border-color: #2384eb;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(35, 132, 235, 0.2);
+  }
+}
+
+/* Modifier classes for different input sizes */
+.input_sm {
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.input_md {
+  font-size: 14px;
+  padding: 8px 12px;
+}
+
+.input_lg {
+  font-size: 16px;
+  padding: 12px 16px;
 }

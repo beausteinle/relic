@@ -10,6 +10,17 @@ export type ButtonProps = {
   children?: React.ReactNode
 }
 
+const getSize = (size: string | undefined) => {
+  switch (size) {
+    case 'small':
+      return styles.button_sm
+    case 'large':
+      return styles.button_lg
+    default:
+      return styles.button_md
+  }
+}
+
 const Button = ({
   onClick,
   text,
@@ -19,21 +30,10 @@ const Button = ({
   style,
   children,
 }: ButtonProps) => {
-  const getSize = () => {
-    switch (size) {
-      case 'small':
-        return styles.button_sm
-      case 'large':
-        return styles.button_lg
-      default:
-        return styles.button_md
-    }
-  }
-
   return (
     <button
       onClick={onClick}
-      className={`${styles.r_button} ${getSize()} ${className ?? ''}`}
+      className={`${styles.r_button} ${getSize(size)} ${className ?? ''}`}
       disabled={disabled}
       style={style}
     >
