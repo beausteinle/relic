@@ -1,0 +1,27 @@
+.r_card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+}
+
+.card_header {
+  display: flex;
+  align-items: center;
+  padding: 5px 20px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.card_header h1,
+.card_header h2,
+.card_header h3,
+.card_header h4,
+.card_header h5,
+.card_header h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.card_content {
+  padding: 5px 20px;
+}
