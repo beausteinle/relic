@@ -4,13 +4,15 @@ type CardProps = {
   title?: string | React.ReactNode
   content?: string | React.ReactNode
   children?: React.ReactNode
+  style?: React.CSSProperties
   className?: string
 }
 
-const Card = ({ title, content, className, children }: CardProps) => {
+const Card = ({ title, content, className, style, children }: CardProps) => {
   return (
     <div
       className={`${styles.r_card} ${className}`}
+      style={style}
       role="region"
       aria-labelledby="card-title"
     >
